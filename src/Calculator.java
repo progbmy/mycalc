@@ -8,7 +8,7 @@ public class Calculator {
 
         while (true) {
 
-            System.out.println("Input: ");
+            System.out.println("Введите данные для расчета: ");
             String line = scanner.nextLine();
 
             if (line.equals("exit")) {
@@ -18,12 +18,12 @@ public class Calculator {
 
             try {
                 String[] symbols = line.split(" ");
-                if (symbols.length != 3) throw new Exception("Что-то пошло не так, попробуйте еще раз");
+                if (symbols.length != 3) throw new Exception("Попробуйте еще раз");
 
-                Number firstNumber = NumberService.parseAndValidate(symbols[0]);
-                Number secondNumber = NumberService.parseAndValidate(symbols[2], firstNumber.getType());
+                Number firstNumber = ServiceNumber.parseAndValidate(symbols[0]);
+                Number secondNumber = ServiceNumber.parseAndValidate(symbols[2], firstNumber.getType());
                 String result = ActionService.calculate(firstNumber, secondNumber, symbols[1]);
-                System.out.println("Output: \n" + result);
+                System.out.println("Результат: \n" + result);
 
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -36,15 +36,14 @@ public class Calculator {
     }
 
     private static void startCalc() {
-        System.out.println("Добро пожаловать в Калькулятор 1.1, он работает только с арабскими и римскими цифрами от 1 до 10");
-        System.out.println("Обладает довольно скудным фукционалом и может предложить только следующие операции:");
-        System.out.println("Сложение(+), Вычитание(-), Умножение(*), Деление(/)");
-        System.out.println("Если Вы хотите покинуть программу, введите 'exit'");
+        System.out.println("Калькулятор работает только с арабскими и римскими цифрами от 1 до 10");
+        System.out.println("Работают следующие операции: Сложение(+), Вычитание(-), Умножение(*), Деление(/)");
+        System.out.println("Введите 'exit' если хотите выйти");
     }
 
     private static void exitCalc() {
 
-        System.out.println("До скорых встреч!");
+        System.out.println("До свидания!");
 
     }
 }

@@ -1,7 +1,7 @@
 import java.util.Map;
 import java.util.TreeMap;
 
-class NumberService {
+class ServiceNumber {
 
     private final static TreeMap < Integer, String > romanString = new TreeMap<>();
 
@@ -31,7 +31,7 @@ class NumberService {
         }
 
         if (value < 1 || value > 10) {
-            throw new Exception("Неподходящее значение числа(ел), используйте числа от 1 до 10 включительно");
+            throw new Exception("Используются только числа от 1 до 10");
         }
 
         return new Number(value, type);
@@ -41,7 +41,7 @@ class NumberService {
 
         Number number = parseAndValidate(symbol);
         if (number.getType() != type) {
-            throw new Exception("Числа разных типов, используйте один тип вводных значений");
+            throw new Exception("Используйте одинаковый тип значений");
         }
 
         return number;

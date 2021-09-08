@@ -18,11 +18,11 @@ public class ActionService {
                 result = first.getValue() / second.getValue();
                 break;
             default:
-                throw new Exception("Не правильно введен символ операции, используйте только +, -, *, /");
+                throw new Exception("Используйте только +, -, *, /");
         }
 
         if (first.getType() == NumberType.ROMAN) {
-            return NumberService.toRomanNumber(result);
+            return ServiceNumber.toRomanNumber(result);
         } else return String.valueOf(result);
     }
 }
